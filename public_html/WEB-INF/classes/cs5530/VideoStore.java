@@ -1,4 +1,4 @@
-package interaction;
+package cs5530;
 
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
