@@ -64,13 +64,13 @@ public class VideoStore {
 		try {
 			//Build the connection string and attempt to connect to the database.
 			c = DriverManager.getConnection(DB_TYPE + DB_HOST + ":" + DB_PORT + "/" + DB_SCHEMA, DB_USER, DB_PASS);
-			if (DEBUG_MODE)
+			/*if (DEBUG_MODE)
 				UserInterface.out("Connected successfully.");
 			if (DEBUG_MODE)
 				UserInterface.out("Unprepared statement: " + statement);
 			if (DEBUG_MODE)
 				UserInterface.out("Parameters: " + Arrays.toString(params));
-			
+			*/
 			//Prevent injection attacks.
 			 PreparedStatement preparedQuery = c.prepareStatement(statement);
 			 if (params != null) 
@@ -109,12 +109,12 @@ public class VideoStore {
 				output = new DataSet(dataSet, columns, -1);
 				results.close();
 			}
-
+/*
 			if (DEBUG_MODE)
 				UserInterface.out("Rows returned: " + output.getRowCount());
 			if (DEBUG_MODE)
 				UserInterface.out("Rows updated: " + output.getUpdateCount());
-			
+			*/
 			preparedQuery.close();
 			c.close();
 			
