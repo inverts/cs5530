@@ -20,7 +20,7 @@ body {
 	-webkit-border-radius: 4px;
 }
 #input {
-	height: 300px;
+	min-height: 300px;
 	padding: 15px 0px;
 	border-bottom: 1px solid #ddd;
 }
@@ -36,4 +36,5 @@ body {
 }
 input {
 	padding: 5px;
+	margin: 3px 0px;
 }

@@ -28,7 +28,7 @@
 			if (title == null || rating == null || format == null) {
 				out.println("Could not add movie, not enough information provided.");
 			} else {
-				out.println((cs5530.VideoStore.addMovie(String title, String rating, String format, int copies) ? "Movie added successfully." : "There was a problem adding your movie. Try again."));
+				out.println((cs5530.VideoStore.addMovie(title, rating, format, copies) ? "Movie added successfully." : "There was a problem adding your movie. Try again."));
 			}
 		} else if(operation.equals("searchMovies")) {
 			String title = request.getParameter("params[title]");
@@ -42,22 +42,22 @@
 			String[] actors = actorsRaw.split(",");
 			boolean match = (matchAll.equals("true") || matchAll.equals("yes") || matchAll.equals("1"));
 					
-			cs5530.VideoStore.DataSet result = searchMovies(title, rating, director, actors, match);
+			cs5530.VideoStore.DataSet result = cs5530.VideoStore.searchMovies(title, rating, director, actors, match);
 			if (result==null) {
 				out.println("There was a problem finding your movies. Try again.");
 			} else {
 				out.println(result.toString());
 			}
 		} else if(operation.equals("addVideosToInventory")) {
-			addVideosToInventory(int videoID, int copies)
+			//addVideosToInventory(int videoID, int copies)
 		} else if(operation.equals("addVideoReview")) {
-			addVideoReview(String username, int videoID, int score, String review)
+			//addVideoReview(String username, int videoID, int score, String review)
 		} else if(operation.equals("declareTrust")) {
-			declareTrust(String truster, String trustee, boolean trusts)
+			//declareTrust(String truster, String trustee, boolean trusts)
 		} else if(operation.equals("orderVideos")) {
-			orderVideos(String username, Integer[] videoIDs, Integer[] copies)
+			//orderVideos(String username, Integer[] videoIDs, Integer[] copies)
 		} else if(operation.equals("getVideoSuggestions")) {
-			getVideoSuggestions(int videoID)
+			//getVideoSuggestions(int videoID)
 		}
 	}
 %>
