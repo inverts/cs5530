@@ -142,3 +142,10 @@ cd ../
 git status -s
 git status
 git push origin
+ls
+git fetch origin
+git merge origin/master
+git commit -m 'Login page updated.'
+git add -A
+git commit -m 'Login page updated.'
+git push origin

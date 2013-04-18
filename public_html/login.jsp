@@ -1,9 +1,9 @@
 <%@ page language="java" import="cs5530.*" %>
 <% 
-	boolean tryLogin = (((Integer)request.getParameter("login"))==1);
-	boolean tryRegister = (((Integer)request.getParameter("register"))==1);
-	String username = (String)request.getParameter("username");
-	String password = (String)request.getParameter("password");
+	boolean tryLogin = (request.getParameter("login")=="1");
+	boolean tryRegister = (request.getParameter("register")=="1");
+	String username = request.getParameter("username");
+	String password = request.getParameter("password");
 	boolean loginSuccess = (username!=null && password!=null && cs5530.VideoStore.tryLogin(username, password));
 	boolean registerSuccess = false;
 	if (loginSuccess) {
@@ -16,7 +16,7 @@
 		String registerfullname = request.getParameter("registerfullname");
 		String registerusername = request.getParameter("registerusername");
 		String registerpassword = request.getParameter("registerpassword");
-		registerSuccess = (registerfullname!=null && registerusername!=null && registerpassword!=null && cs5530.VideoStore.registerUser(registerfullname, registerusername, registerpassword, null, null, null));
+		registerSuccess = (registerfullname!=null && registerusername!=null && registerpassword!=null && cs5530.VideoStore.registerUser( registerusername, registerpassword, registerfullname, null, null, null));
 	}
 %>
 <!DOCTYPE HTML>
