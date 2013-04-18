@@ -149,3 +149,6 @@ git commit -m 'Login page updated.'
 git add -A
 git commit -m 'Login page updated.'
 git push origin
+git commit -m 'Working login/register.'
+git commit -a -m 'Working login/register.'
+git push origin

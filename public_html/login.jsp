@@ -23,9 +23,10 @@
 <html>
 <head>
 <title>Login</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="main"></div>
+<div id="main">
 <h1>Login</h1>
 <%
 if(!loginSuccess && tryLogin) {
