@@ -1,0 +1,39 @@
+body, h1, h2, h3, img, a, div, input {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	text-decoration: none;
+}
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	background: #fafafa;
+	font-size: 14px;
+}
+#main {
+	width: 960px;
+	margin: 50px auto;
+	padding: 15px 30px;
+	border: 1px solid #eee;
+	background: white;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+#input {
+	height: 300px;
+	padding: 15px 0px;
+	border-bottom: 1px solid #ddd;
+}
+#output {
+	padding: 15px 0px;
+}
+#output textarea {
+	width: 95%;
+	height: 100%;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+
+}
+input {
+	padding: 5px;
+}
