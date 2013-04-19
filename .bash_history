@@ -152,3 +152,20 @@ git push origin
 git commit -m 'Working login/register.'
 git commit -a -m 'Working login/register.'
 git push origin
+git pull origin master
+status
+cd public_html
+git status
+git status -s
+l
+ls
+cd ../
+git commit -a -m 'Fixed a few minor things, changed css.'
+git push origin
+git commit -a -m 'First successful API call (framework set up)'
+git push origin
+cd public_html
+ls
+git add -A
+git commit -a -m 'First successful API call (framework set up)'
+git push origin

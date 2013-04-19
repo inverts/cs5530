@@ -1,13 +1,14 @@
 <%@ page language="java" import="cs5530.*" %>
 <% 
 	//First, get session variable
-	String username = session.getAttribute("username").toString();
+	Object user = session.getAttribute("username");
 	//If there is no active session with a username, send them back to the login page.
-	if (username==null) {
+	if (user==null) {
 		%>
 		<jsp:forward page="login.jsp" />
 		<%
 	}
+	String username = user.toString();
 %>
 <!DOCTYPE HTML>
 <html>
@@ -35,7 +36,19 @@
 	Movie Actors (comma-separated):<input type="text" id="searchActors" value="" /><br />
 	Match All? (boolean):<input type="text" id="searchMatchAll" value="" /><br />
 	<input type="button" value="Search Movies" onclick="apiCall('searchMovies', {title: document.getElementById('searchTitle').value, rating: document.getElementById('searchRating').value, director: document.getElementById('searchDirector').value, actors: document.getElementById('searchActors').value, matchall: document.getElementById('searchMatchAll').value});" />
-	
+		
+	<h3>Add Videos to Inventory</h3>
+	Video ID: <input type="text" id="videoID" value="" /><br />
+	Number of Copies: <input type="text" id="addCopies" value="" /><br />
+	<input type="button" value="Add to Inventory" onclick="apiCall('addVideosToInventory', {videoID: document.getElementById('videoID').value, copies: document.getElementById('addCopies').value});" />
+
+	<h3>Add Video Review</h3>
+	<input type="hidden" id="reviewUsername" value="<%=username%>" />
+	Video ID: <input type="text" id="reviewVideoID" value="" /><br />
+	Score: <input type="text" id="reviewScore" value="" /><br />
+	Review: <input type="text" id="review" value="" /><br />
+	<input type="button" value="Submit Review" onclick="apiCall('addVideoReview', {reviewUsername: document.getElementById('reviewUsername').value, reviewVideoID: document.getElementById('reviewVideoID').value, reviewScore: document.getElementById('reviewScore').value, review: document.getElementById('review').value});" />
+
 </div>
 <div id="output">
 	<textarea id="outputarea">

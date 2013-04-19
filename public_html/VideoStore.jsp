@@ -38,7 +38,7 @@
 			String matchAll = request.getParameter("params[matchall]");
 			if (title == null || rating == null || director == null || actorsRaw == null || matchAll == null) {
 				out.println("Not enough search data provided.");
-			}
+			} else {
 			String[] actors = actorsRaw.split(",");
 			boolean match = (matchAll.equals("true") || matchAll.equals("yes") || matchAll.equals("1"));
 					
@@ -48,10 +48,52 @@
 			} else {
 				out.println(result.toString());
 			}
+			}
 		} else if(operation.equals("addVideosToInventory")) {
-			//addVideosToInventory(int videoID, int copies)
+			String videoIDRaw = request.getParameter("params[videoID]");
+			String copiesRaw = request.getParameter("params[copies]");
+			if (videoIDRaw == null || copiesRaw == null) {
+				out.println("Sorry, not enough information provided.");
+			} else {
+			int copies;
+			int videoID;
+			try {
+				copies = Integer.parseInt(copiesRaw);
+				videoID = Integer.parseInt(videoIDRaw );
+			} catch (Exception e) {
+				out.println("Invalid video ID or copy amount. Please submit numbers.");
+				return;
+			}
+			if(addVideosToInventory(videoID, copies)) {
+				out.println("Videos successfully added.");
+			} else {
+				out.println("Sorry, your videos could not be added. Please make sure you have the correct video ID.");
+			}
+			}
 		} else if(operation.equals("addVideoReview")) {
-			//addVideoReview(String username, int videoID, int score, String review)
+			String username = request.getParameter("params[reviewUsername]");
+			String videoIDRaw = request.getParameter("params[reviewVideoID]");
+			String scoreRaw = request.getParameter("params[reviewScore]");
+			String review = request.getParameter("params[review]");
+			if (videoIDRaw == null || username == null || scoreRaw == null || review == null) {
+				out.println("Sorry, not enough information provided.");
+			} else {
+			int videoID;
+			int score;
+			try {
+				score = Integer.parseInt(scoreRaw);
+				videoID = Integer.parseInt(videoIDRaw );
+			} catch (Exception e) {
+				out.println("Invalid video ID or score. Please submit numbers.");
+				return;
+			}
+
+			if(addVideoReview(username, videoID, score, String review)) {
+				out.println("Videos successfully added.");
+			} else {
+				out.println("Sorry, your videos could not be added. Please make sure you have the correct video ID.");
+			}
+			}
 		} else if(operation.equals("declareTrust")) {
 			//declareTrust(String truster, String trustee, boolean trusts)
 		} else if(operation.equals("orderVideos")) {
